@@ -1,0 +1,15 @@
+# 创建 grafan svc 文件，grafana-svc.yaml 
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: kube-ops
+  labels:
+    app: grafana
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: grafana
