@@ -1,0 +1,19 @@
+# 修改 prometheus service 文件， prometheus-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  namespace: kube-ops
+  labels:
+    app: prometheus
+spec:
+  selector:
+    app: prometheus
+  type: NodePort
+  ports:
+    - name: web
+      port: 9090
+      targetPort: http
+    - name: alertmanager
+      port: 9093
+      targetPort: 9093
