@@ -1,0 +1,20 @@
+# 创建 kube-state-metrics 服务的 svc 文件，被监控，svc.yaml 
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: "8080"
+  namespace: kube-system
+  labels:
+    app: kube-state-metrics
+  name: kube-state-metrics-exporter
+spec:
+  ports:
+  - name: 80-8080
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app.kubernetes.io/name: kube-state-metrics
+  type: ClusterIP
