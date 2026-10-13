@@ -1,0 +1,17 @@
+# K8s 敏感配置，千万别上传
+kubeconfig
+*.kubeconfig
+.secrets
+# 本地临时文件、密钥
+*.env
+*.secret
+# IDE编辑器缓存
+.idea/
+.vscode/
+*.swp
+*.swo
+# 系统垃圾文件
+.DS_Store
+Thumbs.db
+# 导出的备份yaml
+*_backup.yaml
